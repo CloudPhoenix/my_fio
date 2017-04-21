@@ -1,0 +1,23 @@
+     MODE      | request size |  iodepth  |   run time(s/m/h/d) | numjobs
+     read      |     64k      |    32     |       2h            |    1
+     write     |     64k      |    32     |       2h            |    1
+     read      |      4k      |    32     |       2h            |    1     
+     write     |      4k      |    32     |       2h            |    1
+     randread  |      4k      |    32     |       2h            |    1
+     randwrite |      4k      |    32     |       2h            |    1
+    END        |
+
+
+#######
+*********mode:*************** 
+100%read  100%sequential   ---->>  read
+100%write 100%sequential   ---->>  write
+100%read  100%random       ---->>  randread
+100%write 100%random       ---->>  randwrite
+
+********run time:*********************
+runtime=x  Terminate x seconds after startup. Can include a normal time suffix if not given in seconds, such as 'm' for minutes, 'h' for hours, and 'd' for days.
+
+
+
+

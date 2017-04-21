@@ -22,6 +22,7 @@ install_fio() {
     make; make install 
     echo "*************FIO Installed*****************"
     cd ..
+  fi
 }
 
 gen_config_file() {

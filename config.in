@@ -1,23 +1,25 @@
-     MODE      | request size |  iodepth  |   run time(s/m/h/d) | numjobs
-     read      |     64k      |    32     |       2h            |    1
-     write     |     64k      |    32     |       2h            |    1
-     read      |      4k      |    32     |       2h            |    1     
-     write     |      4k      |    32     |       2h            |    1
-     randread  |      4k      |    32     |       2h            |    1
-     randwrite |      4k      |    32     |       2h            |    1
-    END        |
+     MODE        | request_size |  iodepth  |  run_time(s/m/h/d) | numjobs
+     read        |     64k      |    32     |      5m            |    1
+     write       |     64k      |    32     |      5m            |    1
+     rw:m        |     64k      |    32     |      5m            |    1
+     randread    |     64k      |    32     |      5m            |    1
+     randwrite   |     64k      |    32     |      5m            |    1
+     randrw:m:n  |     64k      |    32     |      5m            |    1
+    END          |
 
 
-#######
-*********mode:*************** 
-100%read  100%sequential   ---->>  read
-100%write 100%sequential   ---->>  write
-100%read  100%random       ---->>  randread
-100%write 100%random       ---->>  randwrite
+#########################################################################
+*********************mode:************************************ 
+100%read:0%write      100%sequential:0%random       ---->>  read
+0%read:100%write      100%sequential:0%random       ---->>  write
+50%read:50%write      100%sequential:0%random       ---->>  rw
+100%read:0%write      0%sequential:100%random       ---->>  randread
+0%read:100%write      0%sequential:100%random       ---->>  randwrite
+50%read:50%write      0%sequential:100%random       ---->>  randrw
+m%read:(100-m)%write  100%sequential:0%random       ---->>  rw:m  (m is rwmixread)
+50%read:50%write      (100-n)%sequential:n%random   ---->>  randrw:n (percentage_random(n))
+m%read:(100-m)%write  (100-n)%sequential:n%random   ---->>  rw/randrw:m:n (m is rwmixread and n is percentage_random)
 
-********run time:*********************
+********runtime:*********************
 runtime=x  Terminate x seconds after startup. Can include a normal time suffix if not given in seconds, such as 'm' for minutes, 'h' for hours, and 'd' for days.
-
-
-
 

@@ -1,5 +1,5 @@
 #Config File
-[config_mode-config_blocksize]
+[global]
 ioengine=libaio
 direct=1
 runtime=run_time
@@ -7,6 +7,6 @@ iodepth=config_iodepth
 rw=config_mode
 bs=config_blocksize
 time_based
-filename=/dev/config_path
 numjobs=num_jobs
+filename=config_path
 
